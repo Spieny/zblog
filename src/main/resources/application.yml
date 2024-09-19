@@ -40,7 +40,7 @@ logging:
 ziahh:
   jwt:
     user-ttl: 720000000
-    user-secret-key: ZiahhTestBlogUserJWTSecertKey1145141919810abcdefghijklmnopqrstuvwxyz
+    user-secret-key: 123456789123456789123456789123456789abcdefgabcdefg
     user-token-name: authentication
   alioss:
     endpoint: ${ziahh.alioss.endpoint}
