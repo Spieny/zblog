@@ -1,0 +1,62 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+    driver-class-name: ${ziahh.datasource.driver-class-name}
+    url: jdbc:mysql://${ziahh.datasource.host}:${ziahh.datasource.port}/${ziahh.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${ziahh.datasource.username}
+    password: ${ziahh.datasource.password}
+  data:
+    redis:
+      host: ${ziahh.redis.host}
+      port: ${ziahh.redis.port}
+      password: ${ziahh.redis.password}
+      database: ${ziahh.redis.database}
+      connect-timeout: 3000
+mybatis-plus:
+  #mapper????
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ziahh.zblog.pojo
+  configuration:
+    #??????
+    map-underscore-to-camel-case: true
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    com:
+      ziahh:
+        mapper: debug
+        service: debug
+        controller: debug
+
+ziahh:
+  jwt:
+    user-ttl: 720000000
+    user-secret-key: ZiahhTestBlogUserJWTSecertKey1145141919810abcdefghijklmnopqrstuvwxyz
+    user-token-name: authentication
+  alioss:
+    endpoint: ${ziahh.alioss.endpoint}
+    access-key-id: ${ziahh.alioss.access-key-id}
+    access-key-secret: ${ziahh.alioss.access-key-secret}
+    bucket-name: ${ziahh.alioss.bucket-name}
+  spark:
+    hostUrl: ${ziahh.spark.hostUrl}
+    appid: ${ziahh.spark.appid}
+    apiKey: ${ziahh.spark.apiKey}
+    apiSecret: ${ziahh.spark.apiSecret}
+  access-limit: false
+
+knife4j:
+  enable: true
+  basic:
+    username: zblog
+    password: 1233211234567
+    enable: true
